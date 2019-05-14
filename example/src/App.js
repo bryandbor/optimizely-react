@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {useOptimizelyVariant} from '@bryandbor/react-optimizely-hooks';
 
 const TestComponent = () => {
-  const variant = useOptimizelyVariant('8389222516');
+  const variant = useOptimizelyVariant('YOUR_EXPERIMENT_ID');
   return <div>Variant: {(variant && variant.id) || 'None'}</div>;
 };
 
