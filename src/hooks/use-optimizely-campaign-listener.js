@@ -10,7 +10,6 @@ import {
   getExperimentById,
   getVariationFromActiveExperiment,
   getExperimentIdFromDecision,
-  getVariationFromDecision,
 } from '../utils';
 
 export const useOptimizelyCampaignListener = (
