@@ -1,13 +1,20 @@
-import React, { Component } from 'react'
+import React, {useState} from 'react';
 
-import ExampleComponent from '@bryandbor/react-optimizely-hooks'
+import {useOptimizelyVariant} from '@bryandbor/react-optimizely-hooks';
 
-export default class App extends Component {
-  render () {
-    return (
-      <div>
-        <ExampleComponent text='Modern React component module' />
-      </div>
-    )
-  }
-}
+const TestComponent = () => {
+  const variant = useOptimizelyVariant('8389222516');
+  return <div>Variant: {(variant && variant.id) || 'None'}</div>;
+};
+
+export const App = () => {
+  const [unmounted, setUnmounted] = useState(false);
+
+  return (
+    <div onClick={() => setUnmounted(!unmounted)}>
+      {unmounted ? <div>Not testing</div> : <TestComponent />}
+    </div>
+  );
+};
+
+export default App;

@@ -1,7 +1,9 @@
 // @flow
+import type {OptimizelyStateT} from '../type';
+
 import {getOptimizely, getIsOptimizelyInitialized} from '../utils';
 
-export const useOptimizelyState = (): Function => () => {
+export const useOptimizelyState = (): OptimizelyStateT => {
   if (!getIsOptimizelyInitialized()) {
     return null;
   }

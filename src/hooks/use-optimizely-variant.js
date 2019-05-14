@@ -1,12 +1,12 @@
 // @flow
-import React from 'react';
+import {useState} from 'react';
 
 import useOptimizelyCampaignListener from './use-optimizely-campaign-listener';
 
-export const useOptimizelyVariant = (experimentId: string): ?string => {
-  const [variant, setVarient] = React.useState(null);
+export const useOptimizelyVariant = (experimentId: string = ''): ?string => {
+  const [variant, setVariant] = useState(null);
 
-  useOptimizelyCampaignListener(experimentId, setVarient);
+  useOptimizelyCampaignListener(experimentId, setVariant);
 
   return variant;
 };

@@ -1,8 +1,11 @@
 // @flow
+import React, {useState} from 'react';
 import {getOptimizely, getIsOptimizelyInitialized} from '../utils';
 
 export const useOptimizely = () => {
-  if (getIsOptimizelyInitialized()) {
+  const [count, setCount] = useState(0);
+
+  if (!getIsOptimizelyInitialized()) {
     return null;
   }
   return getOptimizely();

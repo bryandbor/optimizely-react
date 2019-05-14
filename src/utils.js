@@ -1,5 +1,6 @@
 // @flow
 import type {
+  Variation,
   OptimizelyStateT,
   OptimizelyDataT,
   Experiment,
@@ -50,10 +51,14 @@ export const getExperimentById = (id): ?Experiment => {
   return state.getExperimentStates()[id] || null;
 };
 
-export const addEventListener = (filter: EventFilter, handler: Function) => {
+export const addEventListener = (
+  filter: EventFilter,
+  handler: Function
+): Function => {
   if (!isBrowser()) {
     return;
   }
+  const token = Date.now();
   const optimizely = getOptimizely();
   optimizely.push({
     type: 'addListener',
@@ -61,23 +66,38 @@ export const addEventListener = (filter: EventFilter, handler: Function) => {
       type: filter.type || 'lifecycle',
       name: filter.name,
     },
+    token,
     handler,
   });
+
+  // Return unsubscribe function
+  return () => {
+    optimizely.push({
+      type: 'removeListener',
+      token,
+    });
+  };
 };
 
-export const addOptimizelyActivatedListener = (callback: Function): void =>
+export const addOptimizelyActivatedListener = (callback: Function): Function =>
   addEventListener({name: 'activated'}, callback);
-export const addCampaignDecidedListener = (callback: Function): void =>
+export const addCampaignDecidedListener = (callback: Function): Function =>
   addEventListener({name: 'campaignDecided'}, callback);
 
 export const getVariationFromActiveExperiment = (
   experiment: Experiment
-): string => get(experiment, 'variation.id');
+): Variation => ({
+  id: get(experiment, 'variation.id'),
+  name: get(experiment, 'variation.name'),
+});
 
 export const getExperimentIdFromDecision = (
   campaignDecision: CampaignDecision
 ): string => get(campaignDecision, 'data.decision.experimentId');
 
-export const getVariationIdFromDecision = (
+export const getVariationFromDecision = (
   campaignDecision: CampaignDecision
-): string => get(campaignDecision, 'data.decision.variationId');
+): Variation => ({
+  id: get(campaignDecision, 'data.decision.variationId'),
+  name: '', // Variation name is not included in Campaign Decision events
+});

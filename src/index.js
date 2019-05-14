@@ -1,4 +1,6 @@
 // @flow
+export * from './types';
+
 export useOptimizely from './hooks/use-optimizely';
 export useOptimizelyCampaignListener from './hooks/use-optimizely-campaign-listener';
 export useOptimizelyData from './hooks/use-optimizely-data';
