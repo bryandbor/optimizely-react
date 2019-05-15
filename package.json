@@ -1,5 +1,5 @@
 {
-  "name": "@bryandbor/react-optimizely-hooks",
+  "name": "@bryandbor/optimizely-react",
   "version": "0.0.1",
   "description": "React hooks for Optimizely",
   "author": "bryandbor",
