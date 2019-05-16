@@ -125,6 +125,11 @@ export type OptimizelyVisitorT = {
   visitorId: string,
 };
 
+export interface OptimizelyT {
+  get: string => any;
+  push: (any, any) => void;
+}
+
 export interface OptimizelyStateT {
   getActivationId: () => string;
   getActiveExperimentIds: () => string[];

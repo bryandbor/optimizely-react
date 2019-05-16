@@ -12,6 +12,12 @@ import {
   getExperimentIdFromDecision,
 } from '../utils';
 
+/**
+ * Adds a listener for the activation of a specific Optimizely experiment.
+ * @param {string} experimentId The experiment id for which the variant will be returned (if found/activated)
+ * @param {Function} decisionCallback The callback to be called with variant information
+ * @returns {Function} React hook to be called within a functional component
+ */
 export const useOptimizelyCampaignListener = (
   experimentId: string,
   decisionCallback: string => any

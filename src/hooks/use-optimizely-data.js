@@ -1,13 +1,13 @@
 // @flow
 import type {OptimizelyDataT} from '../type';
 
-import {getOptimizely, getIsOptimizelyInitialized} from '../utils';
+import {getOptimizelyData} from '../utils';
 
-export const useOptimizelyData = (): OptimizelyDataT => {
-  if (!getIsOptimizelyInitialized()) {
-    return null;
-  }
-  return getOptimizely().get('data');
-};
+/**
+ * Gets Optimizely data (if available)
+ * @returns React hook to be called within a functional component. This hook will return the Optimizely data once
+ * Optimizely activates.
+ */
+export const useOptimizelyData = (): ?OptimizelyDataT => getOptimizelyData();
 
 export default useOptimizelyData;

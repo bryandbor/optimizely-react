@@ -1,13 +1,14 @@
 // @flow
 import type {OptimizelyVisitorT} from '../types';
 
-import {getOptimizely, getIsOptimizelyInitialized} from '../utils';
+import {getOptimizelyVisitor} from '../utils';
 
-export const useOptimizelyVisitor = (): ?OptimizelyVisitorT => {
-  if (!getIsOptimizelyInitialized()) {
-    return null;
-  }
-  return getOptimizely().get('visitor');
-};
+/**
+ * Gets Optimizely visitor (if available)
+ * @returns React hook to be called within a functional component. This hook will return the Optimizely visitor once
+ * Optimizely activates.
+ */
+export const useOptimizelyVisitor = (): ?OptimizelyVisitorT =>
+  getOptimizelyVisitor();
 
 export default useOptimizelyVisitor;

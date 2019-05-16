@@ -6,7 +6,8 @@
   },
   "plugins": ["react", "react-hooks"],
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaVersion": 2018
   },
   "rules": {
     "space-before-function-paren": 0,

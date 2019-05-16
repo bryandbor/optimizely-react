@@ -30,6 +30,7 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
     "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
@@ -59,8 +60,13 @@
   ],
   "keywords": [
     "optimizely",
+    "optimizely x",
     "react",
-    "hooks"
+    "hook",
+    "hooks",
+    "hocs",
+    "hoc",
+    "higher-order components"
   ],
   "dependencies": {
     "dotty": "^0.1.0"

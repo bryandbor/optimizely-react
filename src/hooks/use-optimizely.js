@@ -1,14 +1,12 @@
 // @flow
-import React, {useState} from 'react';
-import {getOptimizely, getIsOptimizelyInitialized} from '../utils';
+import type {OptimizelyT} from '../types';
 
-export const useOptimizely = () => {
-  const [count, setCount] = useState(0);
+import {getOptimizely} from '../utils';
 
-  if (!getIsOptimizelyInitialized()) {
-    return null;
-  }
-  return getOptimizely();
-};
+/**
+ * React hook which returns the instance of Optimizely (if available)
+ * @returns {{}} Optimizely instance (or null if unavailable)
+ */
+export const useOptimizely = (): ?OptimizelyT => getOptimizely();
 
 export default useOptimizely;

@@ -1,8 +1,10 @@
 // @flow
 import type {
   Variation,
+  OptimizelyT,
   OptimizelyStateT,
   OptimizelyDataT,
+  OptimizelyVisitorT,
   Experiment,
   EventFilter,
   CampaignDecision,
@@ -14,14 +16,14 @@ declare var window: any;
 
 export const isBrowser = (): boolean => typeof window !== 'undefined';
 
-export const isOptimizelyLoaded = (): boolean =>
+export const getIsOptimizelyInitialized = (): boolean =>
   isBrowser() &&
   typeof window['optimizely'] &&
   !Array.isArray(window.optimizely);
 
-export const getOptimizely = (): any => {
+export const getOptimizely = (): OptimizelyT | any[] | null => {
   if (!isBrowser()) {
-    throw new Error('Optimizely not found');
+    return null;
   }
 
   if (!window.optimizely) {
@@ -31,16 +33,14 @@ export const getOptimizely = (): any => {
   return window.optimizely;
 };
 
-export const getIsOptimizelyInitialized = (): boolean => {
-  const optimizely = getOptimizely();
-  return optimizely && !Array.isArray(optimizely);
-};
-
 export const getOptimizelyData = (): ?OptimizelyDataT =>
-  isOptimizelyLoaded() ? window.optimizely.get('data') : undefined;
+  getIsOptimizelyInitialized() ? getOptimizely().get('data') : null;
 
 export const getOptimizelyState = (): ?OptimizelyStateT =>
-  isOptimizelyLoaded() ? window.optimizely.get('state') : undefined;
+  getIsOptimizelyInitialized() ? getOptimizely().get('state') : null;
+
+export const getOptimizelyVisitor = (): ?OptimizelyVisitorT =>
+  getIsOptimizelyInitialized() ? getOptimizely().get('visitor') : null;
 
 export const getExperimentById = (id): ?Experiment => {
   const state = getOptimizelyState();
