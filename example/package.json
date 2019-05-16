@@ -1,6 +1,6 @@
 {
-  "name": "@bryandbor/react-optimizely-hooks-example",
-  "homepage": "https://bryandbor.github.io/@bryandbor/react-optimizely-hooks",
+  "name": "@bryandbor/optimizely-react-example",
+  "homepage": "https://bryandbor.github.io/@bryandbor/optimizely-react",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
@@ -9,7 +9,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^1.1.4",
-    "@bryandbor/react-optimizely-hooks": "link:.."
+    "@bryandbor/optimizely-react": "link:.."
   },
   "scripts": {
     "start": "react-scripts start",

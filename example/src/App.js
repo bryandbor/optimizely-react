@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {useOptimizelyVariant} from '@bryandbor/react-optimizely-hooks';
+import {useOptimizelyVariant} from '@bryandbor/optimizely-react';
 
 const TestComponent = () => {
   const variant = useOptimizelyVariant('YOUR_EXPERIMENT_ID');

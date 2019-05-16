@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@bryandbor/react-optimizely-hooks@link:..":
+"@bryandbor/optimizely-react@link:..":
   version "0.0.0"
   uid ""
 

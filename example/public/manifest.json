@@ -1,6 +1,6 @@
 {
-  "short_name": "@bryandbor/react-optimizely-hooks",
-  "name": "@bryandbor/react-optimizely-hooks",
+  "short_name": "@bryandbor/optimizely-react",
+  "name": "@bryandbor/optimizely-react",
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",

@@ -4,7 +4,7 @@
   "description": "React hooks for Optimizely",
   "author": "bryandbor",
   "license": "MIT",
-  "repository": "bryandbor/react-optimizely-hooks",
+  "repository": "https://github.com/bryandbor/optimizely-react",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
